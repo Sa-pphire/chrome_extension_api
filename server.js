@@ -18,8 +18,6 @@ const upload = multer({ dest: 'videos/' });
 
 // Define a model for videos using sequelize
 const env = process.env.NODE_ENV;
-
-const Sequelize = require("sequelize");
 const sequelize = new Sequelize(
    process.env.DB,
    process.env.USER,
