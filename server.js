@@ -44,7 +44,7 @@ const Video = sequelize.define('video', {
 Video.sync();
 
 // Create a route to handle file uploading
-app.post('/upload', uploadPath.single('video'), (req, res) => {
+app.post('/upload', upload.single('video'), (req, res) => {
   // Get the file from the request
   const file = req.file;
 
@@ -94,6 +94,11 @@ app.get('/transcript/:id', (req,res) =>{
               var transcription = transcript.data;
               res.send(transcription)
             })
+            .catch((err) => {
+              // Handle any error
+              console.error(err);
+              res.status(500).json({ success: false, error: err.message });
+            });
           
   
           async function ffmpeg(command) {
