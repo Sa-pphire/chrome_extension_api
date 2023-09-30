@@ -17,9 +17,17 @@ const app = express();
 const upload = multer({ dest: 'videos/' });
 
 // Define a model for videos using sequelize
-const sequelize = new Sequelize(process.env.DB, process.env.USER, process.env.PASSWORD, {
-  dialect: 'postgres',
-});
+const env = process.env.NODE_ENV;
+
+const Sequelize = require("sequelize");
+const sequelize = new Sequelize(
+   process.env.DB,
+   process.env.USER,
+   process.env.PASSWORD,
+  {
+    host:  process.env.HOST,
+    dialect:  "postgres"
+  });
 const Video = sequelize.define('video', {
   name: Sequelize.STRING,
   path: Sequelize.STRING,
