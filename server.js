@@ -139,7 +139,7 @@ app.get('/videos/:id', (req, res) => {
         const filePath = video.path;
 
         // Set the content type header
-        res.set('Content-Type', 'video/webm');
+        res.set('Content-Type', 'video/mp4');
 
         // Create a read stream from the file and pipe it to the response
         const stream = fs.createReadStream(filePath);
