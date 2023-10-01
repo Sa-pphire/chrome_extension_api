@@ -141,7 +141,9 @@ app.get('/videos/:id', (req, res) => {
     });
 });
 
-
+app.get('/', (req,res) => {
+  res.send("Chrome extension api")
+})
 app.listen(process.env.PORT, () => {
   console.log('Server running');
 });
