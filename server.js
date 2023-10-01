@@ -13,18 +13,7 @@ const ffmpegStatic = require('ffmpeg-static');
 // Create an express app
 const app = express();
 
-
-// Configure multer to store files in a folder named 'videos'
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'uploads/')
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname)
-  }
-})
-
-var upload = multer({ storage: storage });
+var upload = multer({ dest: "uploads/"  });
 
 // Define a model for videos using sequelize
 const env = process.env.NODE_ENV;
@@ -95,11 +84,6 @@ app.get('/transcript/:id', (req,res) =>{
               var transcription = transcript.data;
               res.send(transcription)
             })
-            .catch((err) => {
-              // Handle any error
-              console.error(err);
-              res.status(500).json({ success: false, error: err.message });
-            });
           
   
           async function ffmpeg(command) {
