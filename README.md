@@ -30,9 +30,25 @@ node server.js
 ## API Testing
 The following table shows overview of the APIs that will be exported:
 
-- POST   `/upload`         post video to storage
-- GET   `/videos/:id`                 get video from storage
+- POST   `/upload`                post video to storage
+- GET   `/videos/:id`             get video from storage
 - GET    `transcript/:id`         get transcript of video
 
 
 ### Route tests
+
+- Upload a new video using `POST https://chrome-extension-k1gz.onrender.com/upload` Api
+
+![video_upload](./utils/upload.png)
+
+
+- Retrieve a video by id using `GET https://chrome-extension-k1gz.onrender.com/videos/:id` Api
+
+![video_retrieve](./utils/get.png)
+
+- Get transcript pf a video using `GET https://chrome-extension-k1gz.onrender.com/transcript/:id` Api
+
+![video_transcript](./utils/transcript.png)
+
+
+PS New uploaded videos would have an id of 9
